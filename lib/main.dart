@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gsg_api_1/providers/main_provider.dart';
+import 'package:gsg_api_1/ui/screens/custom_splash_screen.dart';
+import 'package:gsg_api_1/ui/screens/product_details_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'home_page.dart';
@@ -19,7 +21,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomePage(),
+        home: CustomSplashScreen(),
+        routes: {
+          HomePage.routeName: (context) => HomePage(),
+          ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
+        },
       ),
     );
   }
