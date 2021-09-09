@@ -8,15 +8,15 @@ class ProductResponse {
   String category;
   String image;
   Rating rating;
-
-  ProductResponse(
-      {required this.id,
-      required this.title,
-      required this.price,
-      required this.description,
-      required this.category,
-      required this.image,
-      required this.rating});
+  ProductResponse({
+    required this.id,
+    required this.title,
+    required this.price,
+    required this.description,
+    required this.category,
+    required this.image,
+    required this.rating,
+  });
 
   factory ProductResponse.fromJson(Map<dynamic, dynamic> json) {
     return ProductResponse(

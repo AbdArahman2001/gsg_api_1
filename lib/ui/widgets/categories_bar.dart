@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 class CategoriesBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MainProvider provider = Provider.of<MainProvider>(context);
     return Selector<MainProvider, List<dynamic>?>(
         selector: (context, mainProvider) => mainProvider.allCategories,
         builder: (context, categories, _) {
@@ -16,12 +17,13 @@ class CategoriesBar extends StatelessWidget {
                       ...categories.map((e) {
                         return InkWell(
                           onTap: () {
-                            Provider.of<MainProvider>(context, listen: false)
-                                .getCategoryProducts(e);
+                            provider.getCategoryProducts(e);
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                color: Colors.blueAccent,
+                                color: provider.currentCategory == e
+                                    ? Colors.red
+                                    : Colors.blueAccent,
                                 borderRadius: BorderRadius.circular(15)),
                             margin: EdgeInsets.symmetric(
                                 vertical: 8, horizontal: 4),
